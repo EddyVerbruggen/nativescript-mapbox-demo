@@ -1,0 +1,27 @@
+﻿page {
+  background-color: #F4F4F4;
+}
+
+.tab-content {
+  color: #808080;
+  padding: 20;
+}
+
+.title {
+  font-size: 20;
+  margin: 0 0 10 0;
+  color: #3c3c3c;
+}
+
+label {
+  font-size: 16;
+}
+
+button {
+  background-color: #3598db;
+  color: #ffffff;
+  padding: 6 0;
+  margin: 6 20;
+  font-size: 16;
+  border-radius: 4;
+}
