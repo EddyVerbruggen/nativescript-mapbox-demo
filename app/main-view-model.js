@@ -173,6 +173,25 @@ var DemoAppModel = (function (_super) {
     )
   };
 
+  DemoAppModel.prototype.doCheckHasFineLocationPermission = function () {
+    mapbox.hasFineLocationPermission().then(
+        function(granted) {
+          dialogs.alert({
+            title: "Permission granted?",
+            message: granted ? "YES" : "NO",
+            okButtonText: "OK"
+          })
+        }
+    )
+  };
+
+  DemoAppModel.prototype.doRequestFineLocationPermission = function () {
+    mapbox.requestFineLocationPermission().then(
+        function() {
+          console.log("Fine Location permission requested");
+        }
+    )
+  };
 
   return DemoAppModel;
 })(observable.Observable);
