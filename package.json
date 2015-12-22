@@ -9,7 +9,7 @@
 		}
 	},
 	"dependencies": {
-		"nativescript-mapbox": "^1.0.4",
+		"nativescript-mapbox": "^1.0.5",
 		"tns-core-modules": "1.4.0"
 	}
 }
