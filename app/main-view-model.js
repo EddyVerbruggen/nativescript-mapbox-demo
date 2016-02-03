@@ -1,6 +1,8 @@
 var observable = require("data/observable");
 var mapbox = require("nativescript-mapbox");
 var dialogs = require("ui/dialogs");
+var platform = require("platform");
+var isIOS = platform.device.os === platform.platformNames.ios;
 var DemoAppModel = (function (_super) {
   __extends(DemoAppModel, _super);
   function DemoAppModel() {
@@ -10,18 +12,18 @@ var DemoAppModel = (function (_super) {
   DemoAppModel.prototype.doShow = function () {
     mapbox.show({
       accessToken: 'sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoia1JpRW82NCJ9.OgnvpsKzB3GJhzyofQNUBw',
-      style: 'emerald',
+      style: mapbox.MapStyle.EMERALD,
       margins: {
-        left: 40,
-        right: 40,
-        top: 376,
-        bottom: 50
+        left: 32,
+        right: 32,
+        top: isIOS ? 350 : 470,
+        bottom: isIOS ? 50 : 0
       },
       center: {
         lat: 52.3702160,
         lng: 4.8951680
       },
-      zoomLevel: 9, // 0 (most of the worlds) to 20, default 0
+      zoomLevel: 9, // 0 (most of the world) to 20, default 0
       showUserLocation: true, // default false
       hideAttribution: true, // default false
       hideLogo: true, // default false
@@ -29,13 +31,14 @@ var DemoAppModel = (function (_super) {
       disableRotation: false, // default false
       disableScroll: false, // default false
       disableZoom: false, // default false
+      disableTilt: false, // default false
       markers: [
         {
-          'lat': 52.3732160,
-          'lng': 4.8941680,
-          'title': 'Nice location',
-          'subtitle': 'Really really nice location',
-          'image': 'www/img/markers/hi.jpg' // TODO support this on a rainy day
+          lat: 52.3732160,
+          lng: 4.8941680,
+          title: 'Nice location',
+          subtitle: 'Really really nice location',
+          image: 'www/img/markers/hi.jpg' // TODO support this on a rainy day
         }
       ]
     }).then(
@@ -45,7 +48,7 @@ var DemoAppModel = (function (_super) {
         function(error) {
           console.log("mapbox show error: " + error);
         }
-    )
+    );
   };
 
   DemoAppModel.prototype.doHide = function () {
@@ -56,23 +59,23 @@ var DemoAppModel = (function (_super) {
         function(error) {
           console.log("mapbox hide error: " + error);
         }
-    )
+    );
   };
 
   DemoAppModel.prototype.doAddMarkers = function () {
     mapbox.addMarkers([
       {
-        'lat': 52.3602160,
-        'lng': 4.8891680,
-        'title': 'One-line title here', // no popup unless set
-        'subtitle': 'This line can\'t span multiple lines either',
-        'image': 'www/img/markers/hi.jpg' // TODO support this on a rainy day
+        lat: 52.3602160,
+        lng: 4.8891680,
+        title: 'One-line title here', // no popup unless set
+        subtitle: 'This line can\'t span multiple lines either',
+        image: 'www/img/markers/hi.jpg' // TODO support this on a rainy day
       },
       {
-        'lat': 52.3702160,
-        'lng': 4.8911680,
-        'title': 'One-line title here 2', // no popup unless set
-        'subtitle': 'This line can\'t span multiple lines either 2'
+        lat: 52.3702160,
+        lng: 4.8911680,
+        title: 'One-line title here 2', // no popup unless set
+        subtitle: 'This line can\'t span multiple lines either 2'
       }
     ]).then(
         function(result) {
@@ -81,7 +84,46 @@ var DemoAppModel = (function (_super) {
         function(error) {
           console.log("mapbox addMarkers error: " + error);
         }
-    )
+    );
+  };
+
+  DemoAppModel.prototype.doSetTilt = function () {
+    mapbox.setTilt(
+        {
+          pitch: 35,
+          duration: 4000
+        }
+    ).then(
+        function(result) {
+          console.log("Mapbox doSetTilt done");
+        },
+        function(error) {
+          console.log("mapbox doSetTilt error: " + error);
+        }
+    );
+  };
+
+  DemoAppModel.prototype.doAnimateCamera = function () {
+    mapbox.animateCamera(
+        {
+          target: {
+            lat: 52.3732160,
+            lng: 4.8941680,
+          },
+          zoomLevel: 17, // Android
+          altitude: 500, // iOS
+          bearing: 270,
+          tilt: 50,
+          duration: 10
+        }
+    ).then(
+        function(result) {
+          console.log("Mapbox doAnimateCamera done");
+        },
+        function(error) {
+          console.log("mapbox doAnimateCamera error: " + error);
+        }
+    );
   };
 
   DemoAppModel.prototype.doSetCenter = function () {
@@ -98,7 +140,7 @@ var DemoAppModel = (function (_super) {
         function(error) {
           console.log("mapbox setCenter error: " + error);
         }
-    )
+    );
   };
 
   DemoAppModel.prototype.doGetCenter = function () {
@@ -108,12 +150,12 @@ var DemoAppModel = (function (_super) {
             title: "Center",
             message: JSON.stringify(result),
             okButtonText: "OK"
-          })
+          });
         },
         function(error) {
           console.log("mapbox getCenter error: " + error);
         }
-    )
+    );
   };
 
   DemoAppModel.prototype.doGetZoomLevel = function () {
@@ -123,12 +165,12 @@ var DemoAppModel = (function (_super) {
             title: "Zoom Level",
             message: JSON.stringify(result),
             okButtonText: "OK"
-          })
+          });
         },
         function(error) {
           console.log("mapbox getCenter error: " + error);
         }
-    )
+    );
   };
 
   DemoAppModel.prototype.doSetZoomLevel = function () {
@@ -144,23 +186,23 @@ var DemoAppModel = (function (_super) {
         function(error) {
           console.log("mapbox setZoomLevel error: " + error);
         }
-    )
+    );
   };
 
   DemoAppModel.prototype.doAddPolygon = function () {
     mapbox.addPolygon({
       points: [
         {
-          'lat': 52.3832160,
-          'lng': 4.8991680
+          lat: 52.3832160,
+          lng: 4.8991680
         },
         {
-          'lat': 52.3632160,
-          'lng': 4.9011680
+          lat: 52.3632160,
+          lng: 4.9011680
         },
         {
-          'lat': 52.3932160,
-          'lng': 4.8911680
+          lat: 52.3932160,
+          lng: 4.8911680
         }
       ]
     }).then(
@@ -170,7 +212,7 @@ var DemoAppModel = (function (_super) {
         function(error) {
           console.log("mapbox addPolygon error: " + error);
         }
-    )
+    );
   };
 
   DemoAppModel.prototype.doCheckHasFineLocationPermission = function () {
@@ -180,9 +222,9 @@ var DemoAppModel = (function (_super) {
             title: "Permission granted?",
             message: granted ? "YES" : "NO",
             okButtonText: "OK"
-          })
+          });
         }
-    )
+    );
   };
 
   DemoAppModel.prototype.doRequestFineLocationPermission = function () {
@@ -190,7 +232,7 @@ var DemoAppModel = (function (_super) {
         function() {
           console.log("Fine Location permission requested");
         }
-    )
+    );
   };
 
   return DemoAppModel;
