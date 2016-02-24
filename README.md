@@ -18,6 +18,12 @@ Next, install the app's iOS and Android runtimes, as well as the app's npm depen
 $ tns install
 ```
 
+Also add typescript support to your project because it's awesome and this plugin has TS definitions:
+
+```
+$ tns install typescript
+```
+
 From there you can use the `run` command to run the demo app on iOS:
 
 ```

@@ -16,23 +16,23 @@
         <TabViewItem.view>
           <GridLayout columns="*, *" rows="auto, auto, auto, auto, auto, auto" horizontalAlignment="stretch" cssClass="tab-content">
 
-            <Button row="0" col="0" text="show" tap="{{ doShow }}" />
-            <Button row="0" col="1"  text="hide" tap="{{ doHide }}"/>
+            <Button row="0" col="0" text="show" tap="{{ doShow }}" cssClass="button" />
+            <Button row="0" col="1"  text="hide" tap="{{ doHide }}" cssClass="button" />
 
-            <Button row="1" col="0" text="get center" tap="{{ doGetCenter }}" />
-            <Button row="1" col="1"  text="set center" tap="{{ doSetCenter }}" />
+            <Button row="1" col="0" text="get center" tap="{{ doGetCenter }}" cssClass="button" />
+            <Button row="1" col="1"  text="set center" tap="{{ doSetCenter }}" cssClass="button" />
 
-            <Button row="2" col="0" text="get zoom level" tap="{{ doGetZoomLevel }}" />
-            <Button row="2" col="1"  text="set zoom level" tap="{{ doSetZoomLevel }}" />
+            <Button row="2" col="0" text="get zoom level" tap="{{ doGetZoomLevel }}" cssClass="button" />
+            <Button row="2" col="1"  text="set zoom level" tap="{{ doSetZoomLevel }}" cssClass="button" />
 
-            <Button row="3" col="0" text="Android: tilt" tap="{{ doSetTilt }}" />
-            <Button row="3" col="1"  text="animate camera" tap="{{ doAnimateCamera }}" />
+            <Button row="3" col="0" text="Android: tilt" tap="{{ doSetTilt }}" cssClass="button" />
+            <Button row="3" col="1"  text="animate camera" tap="{{ doAnimateCamera }}" cssClass="button" />
 
-            <Button row="4" col="0" text="add markers" tap="{{ doAddMarkers }}" />
-            <Button row="4" col="1"  text="Android: polygon" tap="{{ doAddPolygon }}" />
+            <Button row="4" col="0" text="add markers" tap="{{ doAddMarkers }}" cssClass="button" />
+            <Button row="4" col="1"  text="Android: polygon" tap="{{ doAddPolygon }}" cssClass="button" />
 
-            <Button row="5" col="0"  text="location perm?" tap="{{ doCheckHasFineLocationPermission }}" />
-            <Button row="5" col="1"  text="ask permission" tap="{{ doRequestFineLocationPermission }}" />
+            <Button row="5" col="0"  text="location perm?" tap="{{ doCheckHasFineLocationPermission }}" cssClass="button" />
+            <Button row="5" col="1"  text="ask permission" tap="{{ doRequestFineLocationPermission }}" cssClass="button" />
 
           </GridLayout>
         </TabViewItem.view>
