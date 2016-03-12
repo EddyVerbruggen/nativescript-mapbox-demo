@@ -1,4 +1,7 @@
-.idea
-platforms
-node_modules
-lib
+*/bin
+*/obj
+*.user-settings.xml
+Mapbox/node_modules
+Mapbox/platforms
+Mapbox/lib
+Mapbox/hooks
