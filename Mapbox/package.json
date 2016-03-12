@@ -10,7 +10,7 @@
 	},
 	"dependencies": {
 		"nativescript-mapbox": "1.1.1",
-		"tns-core-modules": "1.6.0"
+		"tns-core-modules": "1.5.1"
 	},
 	"devDependencies": {
 		"nativescript-dev-typescript": "^0.3.1",

@@ -33,7 +33,7 @@ obj/**/*
 
 # Source control files
 .gitignore
-.git/**/*
+**/.git/**/*
 
 # AppBuilder files
 .abignore
@@ -46,6 +46,7 @@ obj/**/*
 # TypeScript files
 **/*.ts
 **/*.map
+tsconfig.json
 
 # Other
 **/*.bak
@@ -56,3 +57,6 @@ obj/**/*
 platforms/**/*
 node_modules/**/*
 typings/**/*
+
+# Leads to error on < 1.6, so remove and test when that's avail on TP
+app/App_Resources/Android/AndroidManifest.xml
