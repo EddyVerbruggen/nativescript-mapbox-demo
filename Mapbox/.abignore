@@ -57,6 +57,3 @@ tsconfig.json
 platforms/**/*
 node_modules/**/*
 typings/**/*
-
-# Leads to error on < 1.6, so remove and test when that's avail on TP
-app/App_Resources/Android/AndroidManifest.xml
