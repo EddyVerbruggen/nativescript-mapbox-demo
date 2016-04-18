@@ -1,15 +1,15 @@
 {
 	"nativescript": {
 		"id": "org.nativescript.mapboxdemo",
-		"tns-android": {
-			"version": "1.7.0"
-		},
 		"tns-ios": {
 			"version": "1.7.0"
+		},
+		"tns-android": {
+			"version": "1.7.1"
 		}
 	},
 	"dependencies": {
-		"nativescript-mapbox": "1.1.2",
+		"nativescript-mapbox": "file:../../nativescript-mapbox",
 		"tns-core-modules": "^1.7.0"
 	},
 	"devDependencies": {
