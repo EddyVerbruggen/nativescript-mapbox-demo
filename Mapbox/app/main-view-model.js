@@ -38,7 +38,9 @@ var DemoAppModel = (function (_super) {
           lng: 4.8941680,
           title: 'Nice location',
           subtitle: 'Really really nice location',
-          image: 'www/img/markers/hi.jpg' // TODO support this on a rainy day
+          iconPath: 'res/markers/green_pin_marker.png',
+          onTap: function(){console.log("'Nice location' marker tapped");},
+          onCalloutTap: function(){console.log("'Nice location' marker callout tapped");}
         }
       ]
     }).then(
@@ -63,19 +65,48 @@ var DemoAppModel = (function (_super) {
   };
 
   DemoAppModel.prototype.doAddMarkers = function () {
+    var onTap = function(marker) {
+      console.log("Marker tapped with title: '" + marker.title + "'");
+    };
+    var onCalloutTap = function(marker) {
+      alert("Marker callout tapped with title: '" + marker.title + "'");
+    };
+
     mapbox.addMarkers([
       {
         lat: 52.3602160,
         lng: 4.8891680,
         title: 'One-line title here', // no popup unless set
-        subtitle: 'This line can\'t span multiple lines either',
-        image: 'www/img/markers/hi.jpg' // TODO support this on a rainy day
+        subtitle: 'And a one-liner here as well.',
+        iconPath: 'res/markers/home_marker.png',
+        onTap: onTap,
+        onCalloutTap: onCalloutTap
+      },
+      {
+        lat: 52.3602160,
+        lng: 4.9891680,
+        title: 'One-line title here 2', // no popup unless set
+        subtitle: 'And a one-liner here as well.',
+        iconPath: 'res/markers/home_marker.png',
+        onTap: onTap,
+        onCalloutTap: onCalloutTap
+      },
+      {
+        lat: 52.3602160,
+        lng: 4.7891680,
+        title: 'One-line title here 3', // no popup unless set
+        subtitle: 'And a one-liner here as well.',
+        iconPath: 'res/markers/home_marker.png',
+        onTap: onTap,
+        onCalloutTap: onCalloutTap
       },
       {
         lat: 52.3702160,
         lng: 4.8911680,
-        title: 'One-line title here 2', // no popup unless set
-        subtitle: 'This line can\'t span multiple lines either 2'
+        title: 'This title is cut off on iOS, but multi-line on Android', // no popup unless set
+        subtitle: 'Same for this subtitle. Same for this subtitle. Same for this subtitle. Same for this subtitle. Same for this subtitle.',
+        onTap: function(){console.log("Marker tapped");},
+        onCalloutTap: function(){console.log("Marker callout tapped");}
       }
     ]).then(
         function(result) {
@@ -90,7 +121,7 @@ var DemoAppModel = (function (_super) {
   DemoAppModel.prototype.doSetTilt = function () {
     mapbox.setTilt(
         {
-          pitch: 35,
+          tilt: 35,
           duration: 4000
         }
     ).then(
@@ -114,7 +145,7 @@ var DemoAppModel = (function (_super) {
           altitude: 500, // iOS
           bearing: 270,
           tilt: 50,
-          duration: 10
+          duration: 10000
         }
     ).then(
         function(result) {

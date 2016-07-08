@@ -25,10 +25,10 @@
             <Button row="2" col="0" text="get zoom level" tap="{{ doGetZoomLevel }}" cssClass="button" />
             <Button row="2" col="1"  text="set zoom level" tap="{{ doSetZoomLevel }}" cssClass="button" />
 
-            <Button row="3" col="0" text="Android: tilt" tap="{{ doSetTilt }}" cssClass="button" />
+            <Button row="3" col="0" text="add markers" tap="{{ doAddMarkers }}" cssClass="button" />
             <Button row="3" col="1"  text="animate camera" tap="{{ doAnimateCamera }}" cssClass="button" />
 
-            <Button row="4" col="0" text="add markers" tap="{{ doAddMarkers }}" cssClass="button" />
+            <Button row="4" col="0" text="Android: tilt" tap="{{ doSetTilt }}" cssClass="button" />
             <Button row="4" col="1"  text="Android: polygon" tap="{{ doAddPolygon }}" cssClass="button" />
 
             <Button row="5" col="0"  text="location perm?" tap="{{ doCheckHasFineLocationPermission }}" cssClass="button" />
