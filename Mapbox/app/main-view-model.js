@@ -12,7 +12,7 @@ var DemoAppModel = (function (_super) {
   DemoAppModel.prototype.doShow = function () {
     mapbox.show({
       accessToken: 'sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoia1JpRW82NCJ9.OgnvpsKzB3GJhzyofQNUBw',
-      style: mapbox.MapStyle.EMERALD,
+      style: mapbox.MapStyle.OUTDOORS,
       margins: {
         left: 32,
         right: 32,
