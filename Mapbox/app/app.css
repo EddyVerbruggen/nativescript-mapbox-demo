@@ -19,12 +19,21 @@ label {
 
 button {
   background-color: #3598db;
-  padding: 4 0;
-  margin: 4 10;
-  font-size: 15;
-  border-radius: 4;
+  padding: 3 0;
+  margin: 3 10;
+  font-size: 13;
+  border-radius: 2;
+  height: 30;
 }
 
 .button {
   color: #FFFFFF;
+}
+
+.button-offline {
+  background-color: #A0A0A0;
+}
+
+.button-permissions {
+  background-color: #808080;
 }

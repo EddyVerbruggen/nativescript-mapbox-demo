@@ -9,14 +9,16 @@ var DemoAppModel = (function (_super) {
     _super.call(this);
   }
 
+  var accessToken = 'sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoia1JpRW82NCJ9.OgnvpsKzB3GJhzyofQNUBw';
+
   DemoAppModel.prototype.doShow = function () {
     mapbox.show({
-      accessToken: 'sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoia1JpRW82NCJ9.OgnvpsKzB3GJhzyofQNUBw',
+      accessToken: accessToken,
       style: mapbox.MapStyle.OUTDOORS,
       margins: {
         left: 32,
         right: 32,
-        top: isIOS ? 350 : 470,
+        top: isIOS ? 300 : 384,
         bottom: isIOS ? 50 : 0
       },
       center: {
@@ -115,6 +117,122 @@ var DemoAppModel = (function (_super) {
         function(error) {
           console.log("mapbox addMarkers error: " + error);
         }
+    );
+  };
+
+  // Add an option to download the current viewport: https://www.mapbox.com/ios-sdk/examples/offline-pack/ (look for visibleCoordinateBounds)
+  DemoAppModel.prototype.doDownloadAmsterdam = function () {
+    mapbox.downloadOfflineRegion(
+        {
+          // required for Android in case no map has been shown yet
+          accessToken: accessToken,
+          name: "Amsterdam",
+          style: mapbox.MapStyle.OUTDOORS,
+          minZoom: 9,
+          maxZoom: 11,
+          bounds: {
+            north: 52.4820,
+            east: 5.1087,
+            south: 52.2581,
+            west: 4.6816
+          },
+          onProgress: function (progress) {
+            console.log("Download progress: " + JSON.stringify(progress));
+          }
+        }
+    ).then(
+        function() {
+          dialogs.alert({
+            title: "Offline region downloaded",
+            message: "Done! Zoom levels 9-11 have been downloaded. The download progress was reported via console.log",
+            okButtonText: "OK"
+          });
+        },
+        function(error) {
+          console.log("mapbox doDownloadAmsterdam error: " + error);
+        }
+    );
+
+    dialogs.alert({
+      title: "Be patient",
+      message: "This takes a while, progress is logged via console.log",
+      okButtonText: "Understood"
+    });
+  };
+
+  DemoAppModel.prototype.doDownloadCurrentViewportAsOfflineRegion = function () {
+    mapbox.getViewport().then(function(viewport) {
+      mapbox.downloadOfflineRegion(
+          {
+            name: "LastViewport",
+            style: mapbox.MapStyle.OUTDOORS,
+            minZoom: viewport.zoomLevel,
+            maxZoom: viewport.zoomLevel + 2,
+            bounds: viewport.bounds,
+            onProgress: function (progress) {
+              console.log("Download progress: " + JSON.stringify(progress));
+            }
+          }
+      ).then(
+          function() {
+            dialogs.alert({
+              title: "Viewport downloaded",
+              message: "Downloaded viewport with bounds " + JSON.stringify(viewport.bounds) + " at zoom levels " + viewport.zoomLevel + " - " + (viewport.zoomLevel + 2),
+              okButtonText: "OK :)"
+            });
+          },
+          function(error) {
+            console.log("mapbox doDownloadCurrentViewportAsOfflineRegion error: " + error);
+          }
+      );
+    }, function(error) {
+      dialogs.alert({
+        title: "Download error",
+        message: error,
+        okButtonText: "Got it"
+      });
+    });
+  };
+
+  DemoAppModel.prototype.doListOfflineRegions = function () {
+    mapbox.listOfflineRegions({
+      // required for Android in case no map has been shown yet
+      accessToken: accessToken,
+    }).then(
+      function(regions) {
+        dialogs.alert({
+          title: "Offline regions",
+          message: JSON.stringify(regions),
+          okButtonText: "Thanks"
+        });
+      },
+      function(error) {
+        dialogs.alert({
+          title: "Offline regions list error",
+          message: error,
+          okButtonText: "Hmm"
+        });
+      }
+    );
+  };
+
+  DemoAppModel.prototype.doDeleteOfflineRegion = function () {
+    mapbox.deleteOfflineRegion({
+      name: "Amsterdam"
+    }).then(
+      function() {
+        dialogs.alert({
+          title: "Offline region deleted",
+          okButtonText: "Cool"
+        });
+      },
+      function(error) {
+        dialogs.alert({
+          title: "Error deleting offline region",
+          message: error,
+          okButtonText: "Hmmz"
+        });
+      }
     );
   };
 
