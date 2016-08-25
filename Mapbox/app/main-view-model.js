@@ -36,6 +36,7 @@ var DemoAppModel = (function (_super) {
       disableTilt: false, // default false
       markers: [
         {
+          id: 1,
           lat: 52.3732160,
           lng: 4.8941680,
           title: 'Nice location',
@@ -66,6 +67,43 @@ var DemoAppModel = (function (_super) {
     );
   };
 
+  DemoAppModel.prototype.doUnhide = function () {
+    mapbox.unhide().then(
+        function(result) {
+          console.log("Mapbox doUnhide done");
+        },
+        function(error) {
+          console.log("mapbox doUnhide error: " + error);
+        }
+    );
+  };
+
+  DemoAppModel.prototype.doRemoveAllMarkers = function () {
+    mapbox.removeMarkers(
+    ).then(
+      function(result) {
+        console.log("Mapbox doRemoveAllMarkers done");
+      },
+      function(error) {
+        console.log("mapbox doRemoveAllMarkers error: " + error);
+      }
+    );
+  };
+
+  DemoAppModel.prototype.doRemove2Markers = function () {
+    mapbox.removeMarkers([
+      1,
+      2
+    ]).then(
+      function(result) {
+        console.log("Mapbox doRemove2Markers done");
+      },
+      function(error) {
+        console.log("mapbox doRemove2Markers error: " + error);
+      }
+    );
+  };
+
   DemoAppModel.prototype.doAddMarkers = function () {
     var onTap = function(marker) {
       console.log("Marker tapped with title: '" + marker.title + "'");
@@ -76,6 +114,7 @@ var DemoAppModel = (function (_super) {
 
     mapbox.addMarkers([
       {
+        id: 2,
         lat: 52.3602160,
         lng: 4.8891680,
         title: 'One-line title here', // no popup unless set
@@ -85,6 +124,7 @@ var DemoAppModel = (function (_super) {
         onCalloutTap: onCalloutTap
       },
       {
+        id: 3,
         lat: 52.3602160,
         lng: 4.9891680,
         title: 'One-line title here 2', // no popup unless set
@@ -94,6 +134,7 @@ var DemoAppModel = (function (_super) {
         onCalloutTap: onCalloutTap
       },
       {
+        id: 4,
         lat: 52.3602160,
         lng: 4.7891680,
         title: 'One-line title here 3', // no popup unless set
@@ -103,6 +144,7 @@ var DemoAppModel = (function (_super) {
         onCalloutTap: onCalloutTap
       },
       {
+        id: 5,
         lat: 52.3702160,
         lng: 4.8911680,
         title: 'This title is cut off on iOS, but multi-line on Android', // no popup unless set

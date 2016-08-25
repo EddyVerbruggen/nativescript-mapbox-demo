@@ -14,31 +14,35 @@
       </TabViewItem>
       <TabViewItem title="Demo">
         <TabViewItem.view>
-          <GridLayout columns="*, *" rows="auto, auto, auto, auto, auto, auto, auto" horizontalAlignment="stretch" cssClass="tab-content">
+          <GridLayout columns="*, *, *, *" rows="auto, auto, auto, auto, auto, auto, auto" horizontalAlignment="stretch" cssClass="tab-content">
 
-            <Button row="0" col="0" text="show" tap="{{ doShow }}" cssClass="button" />
-            <Button row="0" col="1"  text="hide" tap="{{ doHide }}" cssClass="button" />
+            <Button row="0" colSpan="2" text="show" tap="{{ doShow }}" cssClass="button" />
+            <Button row="0" col="2"  text="hide" tap="{{ doHide }}" cssClass="button" />
+            <Button row="0" col="3"  text="unhide" tap="{{ doUnhide }}" cssClass="button" />
 
-            <Button row="1" col="0" text="get center" tap="{{ doGetCenter }}" cssClass="button" />
-            <Button row="1" col="1"  text="set center" tap="{{ doSetCenter }}" cssClass="button" />
+            <Button row="1" colSpan="2" text="get center" tap="{{ doGetCenter }}" cssClass="button" />
+            <Button row="1" col="2" colSpan="2"  text="set center" tap="{{ doSetCenter }}" cssClass="button" />
 
-            <Button row="2" col="0" text="get zoom level" tap="{{ doGetZoomLevel }}" cssClass="button" />
-            <Button row="2" col="1"  text="set zoom level" tap="{{ doSetZoomLevel }}" cssClass="button" />
+            <Button row="2" colSpan="2" text="get zoom level" tap="{{ doGetZoomLevel }}" cssClass="button" />
+            <Button row="2" col="2" colSpan="2"  text="set zoom level" tap="{{ doSetZoomLevel }}" cssClass="button" />
 
-            <Button row="3" col="0" text="add markers" tap="{{ doAddMarkers }}" cssClass="button" />
-            <Button row="3" col="1"  text="animate camera" tap="{{ doAnimateCamera }}" cssClass="button" />
+            <Button row="3" colSpan="2" text="add 3 markers" tap="{{ doAddMarkers }}" cssClass="button" />
+            <Button row="3" col="2" colSpan="2"  text="animate camera" tap="{{ doAnimateCamera }}" cssClass="button" />
+
+            <Button row="4" colSpan="2" text="remove 2 markers" tap="{{ doRemove2Markers }}" cssClass="button" />
+            <Button row="4" col="2" colSpan="2" text="remove all markers" tap="{{ doRemoveAllMarkers }}" cssClass="button" />
 
             <!--Button row="4" col="0" text="Android: tilt" tap="{{ doSetTilt }}" cssClass="button" />
             <Button row="4" col="1"  text="Android: polygon" tap="{{ doAddPolygon }}" cssClass="button" /-->
 
-            <Button row="4" col="0" text="DL Amsterdam" tap="{{ doDownloadAmsterdam }}" cssClass="button button-offline" />
-            <Button row="4" col="1"  text="DL current view" tap="{{ doDownloadCurrentViewportAsOfflineRegion }}" cssClass="button button-offline" />
+            <Button row="5" colSpan="2" text="DL Amsterdam" tap="{{ doDownloadAmsterdam }}" cssClass="button button-offline" />
+            <Button row="5" col="2" colSpan="2"  text="DL current view" tap="{{ doDownloadCurrentViewportAsOfflineRegion }}" cssClass="button button-offline" />
 
-            <Button row="5" col="0" text="Del Amsterdam" tap="{{ doDeleteOfflineRegion }}" cssClass="button button-offline" />
-            <Button row="5" col="1"  text="List downloaded" tap="{{ doListOfflineRegions }}" cssClass="button button-offline" />
+            <Button row="6" colSpan="2" text="Del Amsterdam" tap="{{ doDeleteOfflineRegion }}" cssClass="button button-offline" />
+            <Button row="6" col="2" colSpan="2"  text="List downloaded" tap="{{ doListOfflineRegions }}" cssClass="button button-offline" />
 
-            <Button row="6" col="0"  text="location perm?" tap="{{ doCheckHasFineLocationPermission }}" cssClass="button button-permissions" />
-            <Button row="6" col="1"  text="ask permission" tap="{{ doRequestFineLocationPermission }}" cssClass="button button-permissions" />
+            <Button row="7" colSpan="2"  text="location perm?" tap="{{ doCheckHasFineLocationPermission }}" cssClass="button button-permissions" />
+            <Button row="7" col="2" colSpan="2"  text="ask permission" tap="{{ doRequestFineLocationPermission }}" cssClass="button button-permissions" />
 
           </GridLayout>
         </TabViewItem.view>
