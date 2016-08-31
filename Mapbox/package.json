@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "nativescript-mapbox": "1.4.0",
-    "tns-core-modules": "^2.0.0"
+    "tns-core-modules": "2.2.0"
   },
   "devDependencies": {
     "babel-traverse": "6.10.4",
