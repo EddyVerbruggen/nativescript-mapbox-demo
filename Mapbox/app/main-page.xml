@@ -1,4 +1,4 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
+<Page xmlns="http://www.nativescript.org/tns.xsd" xmlns:map="nativescript-mapbox" loaded="pageLoaded">
   <TabView>
     <TabView.items>
       <TabViewItem title="About">
@@ -12,7 +12,71 @@
           </ScrollView>
         </TabViewItem.view>
       </TabViewItem>
-      <TabViewItem title="Demo">
+      <TabViewItem title="By XML">
+        <TabViewItem.view>
+          <GridLayout columns="*, *" rows="180, *, 180" horizontalAlignment="stretch" cssClass="tab-content">
+            <ContentView row="0">
+              <map:Mapbox
+                  latitude="52.3702160"
+                  longitude="4.8951680"
+                  zoomLevel="3"
+                  mapStyle="light"
+                  hideAttribution="false"
+                  showUserLocation="true"
+                  hideCompass="false"
+                  mapReady="onMapReady"
+                  accessToken="sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoia1JpRW82NCJ9.OgnvpsKzB3GJhzyofQNUBw">
+              </map:Mapbox>
+            </ContentView>
+            <ContentView row="0" col="1">
+              <map:Mapbox
+                  latitude="52.3702160"
+                  longitude="4.8951680"
+                  zoomLevel="6"
+                  mapStyle="dark"
+                  hideLogo="true"
+                  hideCompass="true"
+                  accessToken="sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoia1JpRW82NCJ9.OgnvpsKzB3GJhzyofQNUBw">
+              </map:Mapbox>
+            </ContentView>
+            <ContentView row="1" colSpan="2">
+              <map:Mapbox
+                  latitude="52.3702160"
+                  longitude="4.8951680"
+                  zoomLevel="8"
+                  mapStyle="satellite"
+                  mapReady="onMapReady"
+                  hideLogo="true"
+                  hideAttribution="false"
+                  accessToken="sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoia1JpRW82NCJ9.OgnvpsKzB3GJhzyofQNUBw">
+              </map:Mapbox>
+            </ContentView>
+            <ContentView row="2">
+              <map:Mapbox
+                  latitude="52.3702160"
+                  longitude="4.8951680"
+                  zoomLevel="12"
+                  mapStyle="streets"
+                  accessToken="sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoia1JpRW82NCJ9.OgnvpsKzB3GJhzyofQNUBw">
+              </map:Mapbox>
+            </ContentView>
+            <ContentView row="2" col="1">
+              <map:Mapbox
+                  latitude="52.3702160"
+                  longitude="4.8951680"
+                  zoomLevel="14"
+                  disableZoom="true"
+                  disableRotation="true"
+                  disableScroll="true"
+                  disableTilt="true"
+                  mapStyle="hybrid"
+                  accessToken="sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoia1JpRW82NCJ9.OgnvpsKzB3GJhzyofQNUBw">
+              </map:Mapbox>
+            </ContentView>
+          </GridLayout>
+        </TabViewItem.view>
+      </TabViewItem>
+      <TabViewItem title="By Code">
         <TabViewItem.view>
           <GridLayout columns="*, *, *, *" rows="auto, auto, auto, auto, auto, auto, auto" horizontalAlignment="stretch" cssClass="tab-content">
 
