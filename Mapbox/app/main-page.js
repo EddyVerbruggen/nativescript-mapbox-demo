@@ -20,6 +20,20 @@ function onMapReady(args) {
       onCalloutTap: function(){console.log("'Nice location' marker callout tapped");}
     }]
   );
+  
+  setTimeout(function() {
+    args.map.setViewport(
+      {
+        bounds: {
+          north: 52.4820,
+          east: 5.1087,
+          south: 52.2581,
+          west: 4.6816
+        },
+        animated: true
+      }
+    );
+  }, 5000);
 }
 
 exports.onMapReady = onMapReady;

@@ -19,7 +19,7 @@ var DemoAppModel = (function (_super) {
       margins: {
         left: 32,
         right: 32,
-        top: isIOS ? 300 : 384,
+        top: isIOS ? 340 : 420,
         bottom: isIOS ? 50 : 0
       },
       center: {
@@ -159,6 +159,42 @@ var DemoAppModel = (function (_super) {
         },
         function(error) {
           console.log("mapbox addMarkers error: " + error);
+        }
+    );
+  };
+
+  DemoAppModel.prototype.doGetViewport = function () {
+    mapbox.getViewport().then(
+        function(result) {
+          dialogs.alert({
+            title: "Viewport determined",
+            message: JSON.stringify(result),
+            okButtonText: "OK"
+          });
+        },
+        function(error) {
+          console.log("mapbox doGetViewport error: " + error);
+        }
+    );
+  };
+
+  DemoAppModel.prototype.doSetViewport = function () {
+    mapbox.setViewport(
+      {
+        bounds: {
+          north: 52.4820,
+          east: 5.1087,
+          south: 52.2581,
+          west: 4.6816
+        },
+        animated: true // default true
+      }
+    ).then(
+        function() {
+          console.log("Viewport set");
+        },
+        function(error) {
+          console.log("mapbox doSetViewport error: " + error);
         }
     );
   };
