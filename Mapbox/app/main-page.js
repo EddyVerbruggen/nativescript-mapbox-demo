@@ -33,7 +33,84 @@ function onMapReady(args) {
         animated: true
       }
     );
+  }, 4000);
+
+  setTimeout(function() {
+    args.map.addPolygon({
+      points: [
+        {
+          lat: 52.5,
+          lng: 5.05
+        },
+        {
+          lat: 52.55,
+          lng: 5
+        },
+        {
+          lat: 52.6,
+          lng: 5.1
+        }
+      ]
+    });
   }, 5000);
+
+  setTimeout(function() {
+    args.map.addPolyline({
+      color: 0xffff0000,
+      points: [
+        {
+          lat: 52.4,
+          lng: 5
+        },
+        {
+          lat: 51.9,
+          lng: 5.1
+        },
+        {
+          lat: 51.8,
+          lng: 4.95
+        }
+      ]
+    });
+  }, 6000);
+
+  setTimeout(function() {
+    args.map.setCenter({
+      lat: 52.4820,
+      lng: 5.1087,
+      animated: true
+    });
+  }, 6000);
+
+  setTimeout(function() {
+    args.map.setZoomLevel({
+      level: 10,
+      animated: true
+    });
+  }, 8000);
+
+  setTimeout(function() {
+    args.map.removeMarkers([2]);
+  }, 10000);
+
+  setTimeout(function() {
+    args.map.setTilt({
+      tilt: 60,
+      duration: 2500
+    });
+  }, 10000);
+
+  setTimeout(function() {
+    args.map.animateCamera({
+      target: {
+        lat: 51.8,
+        lng: 5
+      },
+      tilt: 75,
+      zoomLevel: 9,
+      duration: 4000
+    });
+  }, 13000);
 }
 
 exports.onMapReady = onMapReady;

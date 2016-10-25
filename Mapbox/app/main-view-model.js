@@ -19,7 +19,7 @@ var DemoAppModel = (function (_super) {
       margins: {
         left: 32,
         right: 32,
-        top: isIOS ? 340 : 420,
+        top: isIOS ? 380 : 460,
         bottom: isIOS ? 50 : 0
       },
       center: {
