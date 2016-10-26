@@ -119,8 +119,8 @@ var DemoAppModel = (function (_super) {
         lat: 52.3602160,
         lng: 4.8891680,
         title: 'One-line title here', // no popup unless set
-        subtitle: 'And a one-liner here as well.',
-        iconPath: 'res/markers/home_marker.png',
+        subtitle: 'With a res://icon-40 image',
+        icon: 'res://icon-40',
         onTap: onTap,
         onCalloutTap: onCalloutTap
       },

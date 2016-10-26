@@ -56,6 +56,7 @@ function onMapReady(args) {
 
   setTimeout(function() {
     args.map.addPolyline({
+      id: 10,
       color: 0xffff0000,
       points: [
         {
@@ -111,6 +112,11 @@ function onMapReady(args) {
       duration: 4000
     });
   }, 13000);
+
+  setTimeout(function() {
+    args.map.removePolylines([10]);
+  }, 15000);
+
 }
 
 exports.onMapReady = onMapReady;
