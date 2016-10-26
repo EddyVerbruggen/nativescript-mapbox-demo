@@ -33,26 +33,7 @@ function onMapReady(args) {
         animated: true
       }
     );
-  }, 4000);
-
-  setTimeout(function() {
-    args.map.addPolygon({
-      points: [
-        {
-          lat: 52.5,
-          lng: 5.05
-        },
-        {
-          lat: 52.55,
-          lng: 5
-        },
-        {
-          lat: 52.6,
-          lng: 5.1
-        }
-      ]
-    });
-  }, 5000);
+  }, 3000);
 
   setTimeout(function() {
     args.map.addPolyline({
@@ -85,38 +66,39 @@ function onMapReady(args) {
 
   setTimeout(function() {
     args.map.setZoomLevel({
-      level: 10,
+      level: 8,
       animated: true
     });
   }, 8000);
 
-  setTimeout(function() {
-    args.map.removeMarkers([2]);
-  }, 10000);
+  // setTimeout(function() {
+    // args.map.removeMarkers([2]);
+  // }, 10000);
 
   setTimeout(function() {
     args.map.setTilt({
-      tilt: 60,
+      tilt: 85,
       duration: 2500
     });
   }, 10000);
 
+/*
   setTimeout(function() {
     args.map.animateCamera({
       target: {
         lat: 51.8,
         lng: 5
       },
-      tilt: 75,
+      tilt: 80,
       zoomLevel: 9,
       duration: 4000
     });
   }, 13000);
+*/
 
   setTimeout(function() {
     args.map.removePolylines([10]);
   }, 15000);
-
 }
 
 exports.onMapReady = onMapReady;

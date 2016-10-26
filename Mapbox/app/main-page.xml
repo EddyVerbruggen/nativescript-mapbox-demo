@@ -14,7 +14,7 @@
       </TabViewItem>
       <TabViewItem title="By XML">
         <TabViewItem.view>
-          <GridLayout columns="*, *" rows="180, *, 180" horizontalAlignment="stretch" cssClass="tab-content">
+          <GridLayout columns="*, *" rows="120, *, 120" horizontalAlignment="stretch" cssClass="tab-content">
             <ContentView row="0">
               <map:Mapbox
                   latitude="52.3702160"
@@ -24,7 +24,6 @@
                   hideAttribution="false"
                   showUserLocation="true"
                   hideCompass="false"
-                  mapReady="onMapReady"
                   accessToken="sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoia1JpRW82NCJ9.OgnvpsKzB3GJhzyofQNUBw">
               </map:Mapbox>
             </ContentView>
@@ -43,7 +42,7 @@
               <map:Mapbox
                   latitude="52.3702160"
                   longitude="4.8951680"
-                  zoomLevel="8"
+                  zoomLevel="7"
                   mapStyle="satellite"
                   mapReady="onMapReady"
                   hideLogo="true"
