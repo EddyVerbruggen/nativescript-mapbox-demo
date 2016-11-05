@@ -29,6 +29,7 @@
             </ContentView>
             <ContentView row="0" col="1">
               <map:Mapbox
+                  delay="invalid"
                   latitude="52.3702160"
                   longitude="4.8951680"
                   zoomLevel="6"
@@ -40,6 +41,7 @@
             </ContentView>
             <ContentView row="1" colSpan="2">
               <map:Mapbox
+                  delay="3000"
                   latitude="52.3702160"
                   longitude="4.8951680"
                   zoomLevel="7"
@@ -52,6 +54,7 @@
             </ContentView>
             <ContentView row="2">
               <map:Mapbox
+                  delay="6000"
                   latitude="52.3702160"
                   longitude="4.8951680"
                   zoomLevel="12"
@@ -61,6 +64,7 @@
             </ContentView>
             <ContentView row="2" col="1">
               <map:Mapbox
+                  delay="8000"
                   latitude="52.3702160"
                   longitude="4.8951680"
                   zoomLevel="14"
