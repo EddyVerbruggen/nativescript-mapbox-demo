@@ -22,6 +22,9 @@ function onMapReady(args) {
   );
   
   setTimeout(function() {
+    args.map.setOnMapClickListener(function(point) {
+      console.log("Map clicked: " + JSON.stringify(point));
+    });
     args.map.setViewport(
       {
         bounds: {
@@ -34,6 +37,11 @@ function onMapReady(args) {
       }
     );
   }, 3000);
+
+  setTimeout(function() {
+    args.map.setMapStyle(mapbox.MapStyle.DARK);
+  }, 5000);
+
 
   setTimeout(function() {
     args.map.addPolyline({
@@ -62,7 +70,7 @@ function onMapReady(args) {
       lng: 5.1087,
       animated: true
     });
-  }, 6000);
+  }, 6100);
 
   setTimeout(function() {
     args.map.setZoomLevel({
