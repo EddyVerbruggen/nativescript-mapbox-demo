@@ -9,7 +9,7 @@
     }
   },
   "dependencies": {
-    "nativescript-mapbox": "2.2.3",
+    "nativescript-mapbox": "2.2.4",
     "tns-core-modules": "^2.3.0"
   },
   "devDependencies": {

@@ -42,7 +42,7 @@ function onMapReady(args) {
     args.map.setMapStyle(mapbox.MapStyle.DARK);
   }, 5000);
 
-
+/*
   setTimeout(function() {
     args.map.addPolyline({
       id: 10,
@@ -63,6 +63,7 @@ function onMapReady(args) {
       ]
     });
   }, 6000);
+  */
 
   setTimeout(function() {
     args.map.setCenter({
@@ -104,9 +105,9 @@ function onMapReady(args) {
   }, 13000);
 */
 
-  setTimeout(function() {
-    args.map.removePolylines([10]);
-  }, 15000);
+  // setTimeout(function() {
+    // args.map.removePolylines([10]);
+  // }, 15000);
 }
 
 exports.onMapReady = onMapReady;
