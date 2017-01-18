@@ -5,12 +5,18 @@
       "version": "2.3.0"
     },
     "tns-android": {
-      "version": "2.3.0"
+      "version": "2.4.1"
     }
   },
   "dependencies": {
     "nativescript-mapbox": "2.2.4",
     "tns-core-modules": "^2.3.0"
+  },
+  "scripts": {
+    "iphone": "tns emulate ios --device 'iPhone 7'",
+    "ipad": "tns emulate ios --device 'iPad Air 2'",
+    "ios.device": "tns run ios",
+    "android": "tns run android"
   },
   "devDependencies": {
     "babel-traverse": "6.10.4",
