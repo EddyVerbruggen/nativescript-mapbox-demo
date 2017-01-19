@@ -120,17 +120,17 @@ var DemoAppModel = (function (_super) {
         lng: 4.8891680,
         title: 'One-line title here', // no popup unless set
         subtitle: 'With a res://icon-40 image',
-        icon: 'res://icon-40',
+        icon: isIOS ? 'res://icon-40' : 'res://icon',
         onTap: onTap,
         onCalloutTap: onCalloutTap
       },
       {
         id: 3,
         lat: 52.3602160,
-        lng: 4.9891680,
+        lng: 5,
         title: 'One-line title here 2', // no popup unless set
         subtitle: 'And a one-liner here as well.',
-        iconPath: 'res/markers/home_marker.png',
+        icon: 'http://www.bme.be/wp-content/uploads/2014/04/marker.png',
         onTap: onTap,
         onCalloutTap: onCalloutTap
       },
@@ -146,10 +146,11 @@ var DemoAppModel = (function (_super) {
       },
       {
         id: 5,
-        lat: 52.3702160,
-        lng: 4.8911680,
+        lat: 52.4,
+        lng: 5.1,
         title: 'This title is cut off on iOS, but multi-line on Android', // no popup unless set
         subtitle: 'Same for this subtitle. Same for this subtitle. Same for this subtitle. Same for this subtitle. Same for this subtitle.',
+        icon: 'http://maryjanewa.com/wp-content/uploads/2016/01/map-marker.png',
         onTap: function(){console.log("Marker tapped");},
         onCalloutTap: function(){console.log("Marker callout tapped");}
       }

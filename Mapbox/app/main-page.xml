@@ -21,7 +21,7 @@
                   longitude="4.8951680"
                   zoomLevel="3"
                   mapStyle="light"
-                  hideAttribution="false"
+                  hideAttribution="true"
                   showUserLocation="true"
                   hideCompass="false"
                   accessToken="sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoia1JpRW82NCJ9.OgnvpsKzB3GJhzyofQNUBw">
@@ -34,6 +34,7 @@
                   longitude="4.8951680"
                   zoomLevel="6"
                   mapStyle="dark"
+                  hideAttribution="true"
                   hideLogo="true"
                   hideCompass="true"
                   accessToken="sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoia1JpRW82NCJ9.OgnvpsKzB3GJhzyofQNUBw">
@@ -48,7 +49,7 @@
                   mapStyle="satellite"
                   mapReady="onMapReady"
                   hideLogo="true"
-                  hideAttribution="false"
+                  hideAttribution="true"
                   accessToken="sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoia1JpRW82NCJ9.OgnvpsKzB3GJhzyofQNUBw">
               </map:Mapbox>
             </ContentView>
@@ -59,6 +60,7 @@
                   longitude="4.8951680"
                   zoomLevel="12"
                   mapStyle="streets"
+                  hideAttribution="true"
                   accessToken="sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoia1JpRW82NCJ9.OgnvpsKzB3GJhzyofQNUBw">
               </map:Mapbox>
             </ContentView>
@@ -72,6 +74,7 @@
                   disableRotation="true"
                   disableScroll="true"
                   disableTilt="true"
+                  hideAttribution="true"
                   mapStyle="hybrid"
                   accessToken="sk.eyJ1IjoiZWRkeXZlcmJydWdnZW4iLCJhIjoia1JpRW82NCJ9.OgnvpsKzB3GJhzyofQNUBw">
               </map:Mapbox>
