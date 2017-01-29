@@ -9,11 +9,11 @@
     }
   },
   "dependencies": {
-    "nativescript-mapbox": "2.4.0",
-    "tns-core-modules": "^2.3.0"
+    "nativescript-mapbox": "2.5.0",
+    "tns-core-modules": "^2.0.0"
   },
   "scripts": {
-    "iphone": "tns emulate ios --device 'iPhone 7'",
+    "iphone": "tns emulate ios --device 'iPhone SE'",
     "ipad": "tns emulate ios --device 'iPad Air 2'",
     "ios.device": "tns run ios",
     "android": "tns run android"
@@ -23,7 +23,7 @@
     "babel-types": "6.11.1",
     "babylon": "6.8.4",
     "lazy": "1.0.11",
-    "nativescript-dev-typescript": "^0.3.2",
-    "typescript": "^1.8.2"
+    "nativescript-dev-typescript": "^0.3.0",
+    "typescript": "^2.1.0"
   }
 }

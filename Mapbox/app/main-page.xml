@@ -1,4 +1,4 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" xmlns:map="nativescript-mapbox" loaded="pageLoaded">
+<Page xmlns="http://www.nativescript.org/tns.xsd" xmlns:map="nativescript-mapbox" actionBarHidden="true" loaded="pageLoaded">
   <TabView>
     <TabView.items>
       <TabViewItem title="About">
@@ -84,29 +84,31 @@
       </TabViewItem>
       <TabViewItem title="By Code">
         <TabViewItem.view>
-          <GridLayout columns="*, *, *, *" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto" horizontalAlignment="stretch" cssClass="tab-content">
+          <GridLayout columns="*, *, *, *" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto, auto" horizontalAlignment="stretch" cssClass="tab-content">
 
             <Button row="0" colSpan="2" text="show" tap="{{ doShow }}" cssClass="button" />
             <Button row="0" col="2"  text="hide" tap="{{ doHide }}" cssClass="button" />
             <Button row="0" col="3"  text="unhide" tap="{{ doUnhide }}" cssClass="button" />
 
-            <Button row="1" colSpan="2" text="get center" tap="{{ doGetCenter }}" cssClass="button" />
-            <Button row="1" col="2" colSpan="2"  text="set center" tap="{{ doSetCenter }}" cssClass="button" />
+            <Button row="1" col="0" text="center?" tap="{{ doGetCenter }}" cssClass="button" />
+            <Button row="1" col="1" text="center!" tap="{{ doSetCenter }}" cssClass="button" />
+            <Button row="1" col="2" text="zoom?" tap="{{ doGetZoomLevel }}" cssClass="button" />
+            <Button row="1" col="3" text="zoom!" tap="{{ doSetZoomLevel }}" cssClass="button" />
 
-            <Button row="2" colSpan="2" text="get zoom level" tap="{{ doGetZoomLevel }}" cssClass="button" />
-            <Button row="2" col="2" colSpan="2"  text="set zoom level" tap="{{ doSetZoomLevel }}" cssClass="button" />
+            <Button row="2" colSpan="2" text="get viewport" tap="{{ doGetViewport }}" cssClass="button" />
+            <Button row="2" col="2" colSpan="2"  text="set viewport" tap="{{ doSetViewport }}" cssClass="button" />
 
-            <Button row="3" colSpan="2" text="get viewport" tap="{{ doGetViewport }}" cssClass="button" />
-            <Button row="3" col="2" colSpan="2"  text="set viewport" tap="{{ doSetViewport }}" cssClass="button" />
+            <Button row="3" colSpan="2" text="add 3 markers" tap="{{ doAddMarkers }}" cssClass="button" />
+            <Button row="3" col="2" colSpan="2"  text="animate camera" tap="{{ doAnimateCamera }}" cssClass="button" />
 
-            <Button row="4" colSpan="2" text="add 3 markers" tap="{{ doAddMarkers }}" cssClass="button" />
-            <Button row="4" col="2" colSpan="2"  text="animate camera" tap="{{ doAnimateCamera }}" cssClass="button" />
+            <Button row="4" colSpan="2" text="remove 2 markers" tap="{{ doRemove2Markers }}" cssClass="button" />
+            <Button row="4" col="2" colSpan="2" text="remove all markers" tap="{{ doRemoveAllMarkers }}" cssClass="button" />
 
-            <Button row="5" colSpan="2" text="remove 2 markers" tap="{{ doRemove2Markers }}" cssClass="button" />
-            <Button row="5" col="2" colSpan="2" text="remove all markers" tap="{{ doRemoveAllMarkers }}" cssClass="button" />
-
-            <Button row="6" colSpan="2" text="Android: tilt" tap="{{ doSetTilt }}" cssClass="button" />
-            <Button row="6" col="2" colSpan="2" text="Android: polygon" tap="{{ doAddPolygon }}" cssClass="button" />
+            <Android>
+              <Button row="5" colSpan="2" text="Set tilt" tap="{{ doSetTilt }}" cssClass="button" />
+              <Button row="5" col="2" colSpan="2" text="Add Polygon" tap="{{ doAddPolygon }}" cssClass="button" />
+              <Button row="6" colSpan="4" text="Add and cluster GeoJSON" tap="{{ doAddAndClusterGeoJSON }}" cssClass="button" />
+            </Android>
 
             <Button row="7" colSpan="2" text="DL Amsterdam" tap="{{ doDownloadAmsterdam }}" cssClass="button button-offline" />
             <Button row="7" col="2" colSpan="2"  text="DL current view" tap="{{ doDownloadCurrentViewportAsOfflineRegion }}" cssClass="button button-offline" />

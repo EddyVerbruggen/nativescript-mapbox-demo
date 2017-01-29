@@ -17,10 +17,10 @@ var DemoAppModel = (function (_super) {
       accessToken: accessToken,
       style: mapbox.MapStyle.OUTDOORS,
       margins: {
-        left: 32,
-        right: 32,
-        top: isIOS ? 380 : 460,
-        bottom: isIOS ? 50 : 0
+        left: 18,
+        right: 18,
+        top: isIOS ? 400 : 424,
+        bottom: isIOS ? 50 : 8
       },
       center: {
         lat: 52.3702160,
@@ -274,11 +274,45 @@ var DemoAppModel = (function (_super) {
     });
   };
 
+  DemoAppModel.prototype.doAddAndClusterGeoJSON = function () {
+    mapbox.addGeoJsonClustered(
+        {
+          name: "earthquakes",
+          data: "https://www.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson",
+          clusterMaxZoom: 15,
+          clusterRadius: 20
+          // clusters: [
+          //   {}
+          // ]
+        }
+    ).then(
+        function() {
+          dialogs.alert({
+            title: "GeoJSON added",
+            message: "Moving to the USA as that's where the GeoJson data is drawn",
+            okButtonText: "OK"
+          }).then(function() {
+            mapbox.setViewport(
+                {
+                  bounds: {
+                    north: 52.9,
+                    east: -62.2,
+                    south: 22.1,
+                    west: -128.2
+                  },
+                  zoomLevel: 3
+                }
+            )
+          });
+        },
+        function(error) {
+          console.log("mapbox doAddAndClusterGeoJSON error: " + error);
+        }
+    );
+  };
+
   DemoAppModel.prototype.doListOfflineRegions = function () {
-    mapbox.listOfflineRegions({
-      // required for Android in case no map has been shown yet
-      accessToken: accessToken,
-    }).then(
+    mapbox.listOfflineRegions().then(
       function(regions) {
         dialogs.alert({
           title: "Offline regions",
@@ -405,7 +439,7 @@ var DemoAppModel = (function (_super) {
   DemoAppModel.prototype.doSetZoomLevel = function () {
     mapbox.setZoomLevel(
         {
-          level: 6,
+          level: 2, // shows most of the world
           animated: true
         }
     ).then(
