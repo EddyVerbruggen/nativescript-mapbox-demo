@@ -86,9 +86,10 @@
         <TabViewItem.view>
           <GridLayout columns="*, *, *, *" rows="auto, auto, auto, auto, auto, auto, auto, auto, auto, auto" horizontalAlignment="stretch" cssClass="tab-content">
 
-            <Button row="0" colSpan="2" text="show" tap="{{ doShow }}" cssClass="button" />
-            <Button row="0" col="2"  text="hide" tap="{{ doHide }}" cssClass="button" />
-            <Button row="0" col="3"  text="unhide" tap="{{ doUnhide }}" cssClass="button" />
+            <Button row="0" col="0" text="show" tap="{{ doShow }}" cssClass="button" />
+            <Button row="0" col="1"  text="hide" tap="{{ doHide }}" cssClass="button" />
+            <Button row="0" col="2"  text="unhide" tap="{{ doUnhide }}" cssClass="button" />
+            <Button row="0" col="3"  text="destroy" tap="{{ doDestroy }}" cssClass="button" />
 
             <Button row="1" col="0" text="center?" tap="{{ doGetCenter }}" cssClass="button" />
             <Button row="1" col="1" text="center!" tap="{{ doSetCenter }}" cssClass="button" />
@@ -98,7 +99,7 @@
             <Button row="2" colSpan="2" text="get viewport" tap="{{ doGetViewport }}" cssClass="button" />
             <Button row="2" col="2" colSpan="2"  text="set viewport" tap="{{ doSetViewport }}" cssClass="button" />
 
-            <Button row="3" colSpan="2" text="add 3 markers" tap="{{ doAddMarkers }}" cssClass="button" />
+            <Button row="3" colSpan="2" text="add 4 markers" tap="{{ doAddMarkers }}" cssClass="button" />
             <Button row="3" col="2" colSpan="2"  text="animate camera" tap="{{ doAnimateCamera }}" cssClass="button" />
 
             <Button row="4" colSpan="2" text="remove 2 markers" tap="{{ doRemove2Markers }}" cssClass="button" />

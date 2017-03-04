@@ -68,6 +68,17 @@ var DemoAppModel = (function (_super) {
     );
   };
 
+  DemoAppModel.prototype.doDestroy = function () {
+    mapbox.destroy().then(
+        function(result) {
+          console.log("Mapbox destroyed");
+        },
+        function(error) {
+          console.log("mapbox destroy error: " + error);
+        }
+    );
+  };
+
   DemoAppModel.prototype.doUnhide = function () {
     mapbox.unhide().then(
         function(result) {

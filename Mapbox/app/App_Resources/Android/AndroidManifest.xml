@@ -35,7 +35,5 @@
 			</intent-filter>
 		</activity>
 		<activity android:name="com.tns.ErrorReportActivity"/>
- 		<!-- TODO for Mapbox SDK 4.0.0 this must be added manually by users! -->
-    <!--<service android:name="com.mapbox.mapboxsdk.telemetry.TelemetryService" />-->
 	</application>
 </manifest>

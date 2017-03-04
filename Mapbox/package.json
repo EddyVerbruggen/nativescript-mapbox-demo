@@ -2,15 +2,15 @@
   "nativescript": {
     "id": "org.nativescript.mapboxdemo",
     "tns-ios": {
-      "version": "2.4.0"
+      "version": "2.5.0"
     },
     "tns-android": {
-      "version": "2.4.1"
+      "version": "2.5.0"
     }
   },
   "dependencies": {
-    "nativescript-mapbox": "2.5.0",
-    "tns-core-modules": "^2.0.0"
+    "nativescript-mapbox": "^2.5.2",
+    "tns-core-modules": "^2.5.1"
   },
   "scripts": {
     "iphone": "tns emulate ios --device 'iPhone SE'",
